@@ -22,10 +22,18 @@ lazy val common = Project("datastats-common", file("modules/datastats-common"))
   .settings(libraryDependencies ++= Seq(scalaTest))
 
 // -------------------------------------------------------------------------------------------------------------------
+// Datastats Utility Module
+// -------------------------------------------------------------------------------------------------------------------
+lazy val utility = Project("datastats-utility", file("modules/datastats-utility"))
+  .aggregate(common).dependsOn(common)
+  .settings(name := "datastats-utility")
+  .settings(libraryDependencies ++= Seq(scalaTest))
+
+// -------------------------------------------------------------------------------------------------------------------
 // Datastats Repository Module
 // -------------------------------------------------------------------------------------------------------------------
 lazy val repository = Project("datastats-repository", file("modules/datastats-repository"))
-  .aggregate(common).dependsOn(common)
+  .aggregate(common, utility).dependsOn(common, utility)
   .settings(name := "datastats-reprository")
   .settings(libraryDependencies ++= Seq(scalaTest))
 
@@ -33,7 +41,7 @@ lazy val repository = Project("datastats-repository", file("modules/datastats-re
 // Datastats Query Engine
 // -------------------------------------------------------------------------------------------------------------------
 lazy val queryEngine = Project("datastats-query-engine", file("modules/datastats-query-engine"))
-  .aggregate(common).dependsOn(common)
+  .aggregate(common, utility).dependsOn(common, utility)
   .settings(name := "datastats-query-engine")
   .settings(libraryDependencies ++= Seq(scalaTest))
 
@@ -41,7 +49,7 @@ lazy val queryEngine = Project("datastats-query-engine", file("modules/datastats
 // Datastats Queue Manager
 // -------------------------------------------------------------------------------------------------------------------
 lazy val queueManager = Project("datastats-queue-manager", file("modules/datastats-queue-manager"))
-  .aggregate(common).dependsOn(common)
+  .aggregate(common, utility).dependsOn(common, utility)
   .settings(name := "datastats-queue-manager")
   .settings(libraryDependencies ++= Seq(scalaTest))
 
@@ -49,8 +57,8 @@ lazy val queueManager = Project("datastats-queue-manager", file("modules/datasta
 // Datastats Data Engine
 // -------------------------------------------------------------------------------------------------------------------
 lazy val dataEngine = Project("datastats-data-engine", file("modules/datastats-data-engine"))
-  .aggregate(common, repository, queryEngine)
-  .dependsOn(common, repository, queryEngine)
+  .aggregate(common, utility, repository, queryEngine)
+  .dependsOn(common, utility, repository, queryEngine)
   .settings(name := "datastats-data-engine")
   .settings(libraryDependencies ++= Seq(scalaTest))
   
@@ -58,8 +66,8 @@ lazy val dataEngine = Project("datastats-data-engine", file("modules/datastats-d
 // Datastats REST API
 // -------------------------------------------------------------------------------------------------------------------
 lazy val restApi = Project("datastats-api", file("modules/datastats-api"))
-  .aggregate(common, repository, queryEngine, queueManager)
-  .dependsOn(common, repository, queryEngine, queueManager)
+  .aggregate(common, utility, repository, queryEngine, queueManager)
+  .dependsOn(common, utility, repository, queryEngine, queueManager)
   .settings(name := "datastats-api")
   .settings(libraryDependencies ++= Seq(guice, h2Database, scalaTestPlus))
   .enablePlugins(PlayScala)
