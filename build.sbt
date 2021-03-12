@@ -1,5 +1,5 @@
 version      := "1.0.0-SNAPSHOT"
-scalaVersion := "2.12.13"
+scalaVersion := "2.13.5"
 organization := "com.techmonad.datastats"
 
 crossScalaVersions := Seq("2.11.12", "2.12.6")
