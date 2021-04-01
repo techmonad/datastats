@@ -74,6 +74,6 @@ lazy val restApi = Project("datastats-api", file("modules/datastats-api"))
 
 // Project Dependencies
 val h2Database = "com.h2database" % "h2" % "1.4.200"
-val scalaTest = "org.scalatest" %% "scalatest" % "3.2.6" % Test
+val scalaTest = "org.scalatest" %% "scalatest" % "3.2.7" % Test
 val scalaTestPlus = "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
 
