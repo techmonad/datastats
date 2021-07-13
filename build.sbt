@@ -1,8 +1,8 @@
-version      := "1.0.0-SNAPSHOT"
-scalaVersion := "2.13.5"
-organization := "com.techmonad.datastats"
+ThisBuild / version      := "1.0.0-SNAPSHOT"
+ThisBuild / scalaVersion := "2.13.5"
+ThisBuild / organization := "com.techmonad.datastats"
 
-crossScalaVersions := Seq("2.11.12", "2.13.5")
+//crossScalaVersions := Seq("2.11.12", "2.13.5")
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
