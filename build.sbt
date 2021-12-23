@@ -1,5 +1,5 @@
 ThisBuild / version      := "1.0.0-SNAPSHOT"
-ThisBuild / scalaVersion := "2.13.5"
+ThisBuild / scalaVersion := "2.13.7"
 ThisBuild / organization := "com.techmonad.datastats"
 
 //crossScalaVersions := Seq("2.11.12", "2.13.5")
@@ -74,6 +74,6 @@ lazy val restApi = Project("datastats-api", file("modules/datastats-api"))
 
 // Project Dependencies
 val h2Database = "com.h2database" % "h2" % "2.0.204"
-val scalaTest = "org.scalatest" %% "scalatest" % "3.2.9" % Test
+val scalaTest = "org.scalatest" %% "scalatest" % "3.2.10" % Test
 val scalaTestPlus = "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
 
