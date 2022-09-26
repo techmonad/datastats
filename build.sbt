@@ -1,5 +1,5 @@
 ThisBuild / version      := "1.0.0-SNAPSHOT"
-ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.9"
 ThisBuild / organization := "com.techmonad.datastats"
 
 //crossScalaVersions := Seq("2.11.12", "2.13.5")
